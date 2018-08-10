@@ -15,6 +15,16 @@ import Membership from './membership'
 import Exclusive from './exclusive'
 import Home from './home'
 import * as firebase from 'firebase';
+import fireConfig from '../../auth'
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: fireConfig.apiKey,
+  authDomain: fireConfig.authDomain,
+  databaseURL: fireConfig.databaseURL,
+  storageBucket: fireConfig.storageBucket,
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const routes = {
   bookmarks: Bookmarks,

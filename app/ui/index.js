@@ -14,6 +14,7 @@ import Bookmarks from './bookmarked'
 import Membership from './membership'
 import Exclusive from './exclusive'
 import Home from './home'
+import * as firebase from 'firebase';
 
 const routes = {
   bookmarks: Bookmarks,

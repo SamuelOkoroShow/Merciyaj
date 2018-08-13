@@ -17,6 +17,7 @@ import Exclusive from './exclusive'
 import Home from './home'
 import Splash from './splash'
 
+
 //Firebase
 import * as firebase from 'firebase';
 import fireConfig from '../../auth'
@@ -64,6 +65,7 @@ export default class index extends React.Component {
 
   componentDidMount(){
     // Change state from loading circle
+     
   }
 
  
@@ -73,7 +75,7 @@ export default class index extends React.Component {
                       <Navigator
               style={{flex: 1}}
               ref={'nav'}
-              initialRoute={{id: 'splash', name: 'splash'}}
+              initialRoute={{id: 'home', name: 'home'}}
               renderScene={this.renderScene.bind(this)}
             /> 
       </View>
@@ -82,6 +84,9 @@ export default class index extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  android:{
+
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

@@ -4,16 +4,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import beer from '../images/MforMature.png'
-import ford from '../images/times.png'
+import ford from '../images/times.jpg'
 import logo from '../images/merciyah.png'
 
 
 // This is the default page on new Merciyaj instance.
 
 export default class Splash extends React.Component {
-  constructor(){
-    super()
-    console.log('splash view pass')
+  constructor(props){
+    super(props)
 
     this.state = {
       spotlight : beer
@@ -22,6 +21,7 @@ export default class Splash extends React.Component {
 
   componentDidMount(){
     this.splash();
+
   }
 
 
@@ -29,18 +29,21 @@ export default class Splash extends React.Component {
   // To get our timer working like a bagel shop, we'll need to get the amount of time it take for a logical fade in.
   setTimeout(() => {this.setState({
     spotlight: ford
-  })}, 5000)
+  })}, 4000)
 
     setTimeout(() => {this.setState({
     spotlight: logo
-  })}, 11000)
+  })}, 9000)
+
+     setTimeout(() => {this.props.navigator.push({id:'home', name:'home'})}, 12000)
+
 }
 
 
   render() {
     return (
       <View style={styles.container}>
-        <Image source = {this.state.spotlight} resizeMode = "contain" style = {flex:1, width:null, height:null} />
+        <Image source = {this.state.spotlight} resizeMode = "contain" style = {{width:200, height:200}} />
       </View>
     );
   }

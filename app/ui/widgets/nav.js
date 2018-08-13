@@ -60,7 +60,7 @@ queueInvasion(){
   {
     this.state.fontLoaded ? (
       <Text style={{ fontFamily: 'latoLight', fontSize: 50 }}>
-        Hello, world!
+        Error 404
       </Text>
     ) : null
   }

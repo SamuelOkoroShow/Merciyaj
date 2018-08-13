@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, ActivityIndicator, View, TouchableOpacity } from 'react-native';
+import { Font } from 'expo';
+
 
 // This is were all the mathematics and design sheeets get referenced.
 // Dont get confused
@@ -56,7 +58,21 @@ export default class index extends React.Component {
 
     // Check for chache state. We don't want to load our slash screen everttime
     // Declare state as loading
+
+    this.state ={
+      viewLoaded: false
+    }
   }
+
+// Await these
+    async componentDidMount(){
+    await Font.loadAsync({
+      'latoLight': require('./fonts/Lato-Light.ttf'),
+    });
+    this.setState({ fontLoaded: true });
+  }
+
+
   // routing to our views dynamicly
   renderScene({id}, navigator){
     const Scene = routes[id]
@@ -68,17 +84,21 @@ export default class index extends React.Component {
      
   }
 
+  navigator(){
+    
+  }
+
  
-  render() {
+  render(){
     return (
-      <View style={styles.container}>
-                      <Navigator
-              style={{flex: 1}}
-              ref={'nav'}
-              initialRoute={{id: 'home', name: 'home'}}
-              renderScene={this.renderScene.bind(this)}
-            /> 
-      </View>
+          <View style={styles.container}>
+                          <Navigator
+                  style={{flex: 1}}
+                  ref={'nav'}
+                  initialRoute={{id: 'home', name: 'home'}}
+                  renderScene={this.renderScene.bind(this)}
+                /> 
+          </View>
     );
   }
 }

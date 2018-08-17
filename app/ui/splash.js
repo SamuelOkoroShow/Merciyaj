@@ -26,6 +26,7 @@ export default class Splash extends React.Component {
 
 
 	splash(){
+
   // To get our timer working like a bagel shop, we'll need to get the amount of time it take for a logical fade in.
   setTimeout(() => {this.setState({
     spotlight: ford

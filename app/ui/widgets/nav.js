@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, TouchableHighlight, Text, View, Dimensions, ImageBackground, Image,} from 'react-native';
 import geo from '../../images/geo.png'
 import { Font } from 'expo';
 
@@ -36,13 +36,16 @@ queueInvasion(){
   Invaded(){
     return (
       <View style={styles.container}>
-        <Text style={{}}>Hello World!</Text>
-         
-        <Text style={styles.InvadedTxt}>Hello World!</Text>
-        <Text style={styles.InvadedTxt}>Hello World!</Text>
+      <View style={{justifyContent:'space-around', flex:8}}>
+        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
+        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
+        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
+        </View>
+        <View style={{flex:2}}>
         <Image source ={geo} resizeMode="contain" style={{width:80, height:80, margin:20,}} />
         <Text style={{paddingTop:20, paddingBottom:20, color:'#fff'}}>Current Mailing address. Prefaravly a P O box 349</Text>
         <Text style={{color:"#fff"}}> Call in or Check for updates</Text>
+        </View>
       </View>)
   }
 
@@ -59,10 +62,7 @@ queueInvasion(){
     return(<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
   {
     this.state.fontLoaded ? (
-      <Text style={{ fontFamily: 'latoLight', fontSize: 50 }}>
-        Error 404
-      </Text>
-    ) : null
+      this.Invaded()) : null
   }
 </View>);
   }
@@ -71,10 +71,10 @@ queueInvasion(){
 const styles = StyleSheet.create({
   container:{
     backgroundColor:'rgba(0,0,0,0.8)',
-    height:height,
+    height:height-30,
     width:width,
     padding:20,
- 
+    marginBottom:20,
   },
   fortress:{
     flexDirection:'row',
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
 
       color:'#fff',
       fontSize:50,
+      fontFamily:'latoLight',
       fontWeight:'100',
 
   },

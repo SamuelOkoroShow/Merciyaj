@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, TouchableHighlight, Text, View, Dimensions, ImageBackground, Image,} from 'react-native';
 import geo from '../../images/geo.png'
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+// Be sure to Demo these
 import { Font } from 'expo';
 
 var width = Dimensions.get('window').width;
@@ -13,16 +16,11 @@ export default class NavHold extends React.Component {
   constructor(){
     super()
     this.state = {
-        scene: this.Invaded(),
-         fontLoaded: false,
     }
   }
 
-  async componentDidMount(){
-    await Font.loadAsync({
-      'latoLight': require('../fonts/Lato-Light.ttf'),
-    });
-    this.setState({ fontLoaded: true });
+componentDidMount(){
+  console.log(Icon)
   }
 
 queueInvasion(){
@@ -33,37 +31,16 @@ queueInvasion(){
   })
 }
 
-  Invaded(){
-    return (
-      <View style={styles.container}>
-      <View style={{justifyContent:'space-around', flex:8}}>
-        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
-        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
-        <TouchableOpacity><Text style={styles.InvadedTxt}>Hello World!</Text></TouchableOpacity>
-        </View>
-        <View style={{flex:2}}>
-        <Image source ={geo} resizeMode="contain" style={{width:80, height:80, margin:20,}} />
-        <Text style={{paddingTop:20, paddingBottom:20, color:'#fff'}}>Current Mailing address. Prefaravly a P O box 349</Text>
-        <Text style={{color:"#fff"}}> Call in or Check for updates</Text>
-        </View>
-      </View>)
-  }
-
-  fortress(){
-    return (
-      <View style={styles.fortress}>
-        <Text style={style.fortressTxt}>Hello World!</Text>
-        <Text style={style.fortressTxt}>Hello World!</Text>
-        <Text style={style.fortressTxt}>Hello World!</Text>
-      </View>)
-  }
-
   render() {
-    return(<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-  {
-    this.state.fontLoaded ? (
-      this.Invaded()) : null
-  }
+    return(<View style={{position:'absolute', bottom:0, width:width, height:55, backgroundColor:'rgba(0,0,0,0.7)', flexDirection:'row', justifyContent: 'space-between', padding:5, alignItems: 'center' }}>
+<View style={{flexDirection:'row'}}>
+<TouchableOpacity><Icon name="filter-hdr" color="#fff" size={19} style={{margin:10}} /></TouchableOpacity>
+<TouchableOpacity><Icon name="security" color="#fff" size={19} style={{margin:10}} /></TouchableOpacity>
+<TouchableOpacity><Icon name="format-paint" color="#fff" size={19} style={{margin:10}} /></TouchableOpacity>
+</View>
+<View>
+<TouchableOpacity><Icon name="color-lens" color="#fff" size={19} style={{margin:10}} /></TouchableOpacity>
+</View>
 </View>);
   }
 }

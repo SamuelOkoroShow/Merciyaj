@@ -95,7 +95,7 @@ export default class index extends React.Component {
                           <Navigator
                   style={{flex: 1}}
                   ref={'nav'}
-                  initialRoute={{id: 'splash', name: 'splash'}}
+                  initialRoute={{id: 'home', name: 'home'}}
                   renderScene={this.renderScene.bind(this)}
                 /> 
           </View>
